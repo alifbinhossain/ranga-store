@@ -28,6 +28,11 @@
       integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
       crossorigin="anonymous"
     />
+    <!-- ---------------------------- CSS ANIMATION ---------------------------- -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
 
   <body>
@@ -55,11 +60,22 @@
       <div class="container my-5">
         <div class="row">
           <!-- ------------------------------ PRODUCTS ------------------------------- -->
-          <div class="col-md-9 col-lg-9 col-sm-7">
-            <div id="all-products" class=""></div>
+          <div
+            class="
+              col-md-9 col-lg-9 col-sm-7
+              animate__animated animate__fadeInLeft
+            "
+          >
+            <div id="all-products"></div>
           </div>
           <!-- -------------------------------- CART --------------------------------- -->
-          <div class="col-md-3 col-lg-3 col-sm-5 cart-main">
+          <div
+            class="
+              col-md-3 col-lg-3 col-sm-5
+              cart-main
+              animate__animated animate__fadeInRight
+            "
+          >
             <div class="cart" id="my-cart">
               <table class="table text-white">
                 <thead>

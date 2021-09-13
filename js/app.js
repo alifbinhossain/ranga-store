@@ -220,19 +220,19 @@ const showProducts = (products) => {
     let ratingIcon = icon(product);
     const div = document.createElement("div");
     div.classList.add("product");
-    div.innerHTML = `<div class="single-product">
+    div.innerHTML = `<div class="single-product ">
       <div>
       <div>
     <img class="product-image" src=${image}></img>
       </div>
       <h3 class="fs-5 my-3">${product.title.slice(0, 40)}</h3>
-      <p class="my-0">Category: ${product.category}</p>
       <h2 class="fs-6 my-2">Price: $ ${product.price}</h2>
       </div>
       <div>
       <p class="my-0">Rating: ${product.rating.rate}</p>
       <p class="my-0">Total Reviews: ${product.rating.count}</p>
       <p>${ratingIcon}</p>
+      <p class="my-0">Category: ${product.category}</p>
       </div>
       <div class="d-flex">
       <button onclick="addToCart(${product.id},${

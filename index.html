@@ -31,31 +31,34 @@
   </head>
 
   <body>
+    <!-- ------------------------------- HEADER -------------------------------- -->
     <header class="my-3">
       <h1 class="text-center text-white">The Mega Store</h1>
     </header>
+    <!-- -------------------------------- MAIN --------------------------------- -->
     <main class="main">
-      <div class="">
-        <div class="search-box me-auto">
-          <input id="input-field" class="search-field" type="text" />
-          <button
-            type="button"
-            class="search-button btn-cart"
-            data-toggle="button"
-            aria-pressed="false"
-            autocomplete="off"
-            id="search-btn"
-            onclick="loadProducts()"
-          >
-            Search
-          </button>
-        </div>
+      <!-- ---------------------------- SEARCH FIELD ----------------------------- -->
+      <div class="search-box me-auto">
+        <input id="input-field" class="search-field" type="text" />
+        <button
+          type="button"
+          class="search-button btn-cart"
+          data-toggle="button"
+          aria-pressed="false"
+          autocomplete="off"
+          id="search-btn"
+          onclick="loadProducts()"
+        >
+          Search
+        </button>
       </div>
       <div class="container my-5">
         <div class="row">
+          <!-- ------------------------------ PRODUCTS ------------------------------- -->
           <div class="col-md-9 col-lg-9 col-sm-7">
             <div id="all-products" class=""></div>
           </div>
+          <!-- -------------------------------- CART --------------------------------- -->
           <div class="col-md-3 col-lg-3 col-sm-5 cart-main">
             <div class="cart" id="my-cart">
               <table class="table text-white">
@@ -108,11 +111,29 @@
         </div>
       </div>
     </main>
+    <!-- ------------------------------- FOOTER -------------------------------- -->
     <footer class="text-center text-white mb-4">
       <small>&copy;All rights reserved by Alif Bin Hossain.2021.</small>
     </footer>
 
-    <!-- add javascript  file  -->
+    <!-- ------------------------ add javascript  file ------------------------- -->
+    <!-- bootstrap js file-->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <!-- external js file -->
     <script src="js/app.js"></script>
   </body>
 </html>

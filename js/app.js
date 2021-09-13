@@ -1,5 +1,4 @@
 /* ------------------------------ LOAD PRODUCTS ----------------------------- */
-
 const loadProducts = () => {
   const data = [
     {
@@ -218,60 +217,7 @@ const showProducts = (products) => {
   for (const product of allProducts) {
     console.log(product);
     const image = product.image;
-    let ratingIcon;
-    if (Number(product.rating.rate) < 1) {
-      ratingIcon = `
-      <i class="fas fa-star-half rating"></i>
-      <i class="fas fa-star-half rating"></i>
-      <i class="fas fa-star-half rating"></i>
-      <i class="fas fa-star-half rating"></i>
-      <i class="fas fa-star-half rating"></i>
-      `;
-    } else if (
-      Number(product.rating.rate) === 1 ||
-      (Number(product.rating.rate) < 2 && Number(product.rating.rate) > 1)
-    ) {
-      ratingIcon = `
-      <i class="fas fa-star rating"></i>
-      <i class="fas fa-star-half rating"></i>
-      <i class="fas fa-star-half rating"></i>
-      <i class="fas fa-star-half rating"></i>
-      <i class="fas fa-star-half rating"></i>`;
-    } else if (
-      Number(product.rating.rate) < 3 &&
-      Number(product.rating.rate) >= 2
-    ) {
-      ratingIcon = `
-      <i class="fas fa-star rating"></i>
-      <i class="fas fa-star rating"></i>
-      <i class="fas fa-star-half rating"></i>
-      <i class="fas fa-star-half rating"></i>
-      <i class="fas fa-star-half rating"></i>`;
-    } else if (
-      Number(product.rating.rate) < 4 &&
-      Number(product.rating.rate) >= 3
-    ) {
-      ratingIcon = `
-      <i class="fas fa-star rating"></i>
-      <i class="fas fa-star rating"></i>
-      <i class="fas fa-star rating"></i>
-      <i class="fas fa-star-half rating"></i>
-      <i class="fas fa-star-half rating"></i>`;
-    } else if (Number(product.rating.rate) >= 4) {
-      ratingIcon = `
-      <i class="fas fa-star rating"></i>
-      <i class="fas fa-star rating"></i>
-      <i class="fas fa-star rating"></i>
-      <i class="fas fa-star rating"></i>
-      <i class="fas fa-star-half rating"></i>`;
-    } else {
-      ratingIcon = `
-      <i class="fas fa-star rating"></i>
-      <i class="fas fa-star rating"></i>
-      <i class="fas fa-star rating"></i>
-      <i class="fas fa-star rating"></i>
-      <i class="fas fa-star rating"></i>`;
-    }
+    let ratingIcon = icon(product);
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `<div class="single-product">
@@ -284,7 +230,6 @@ const showProducts = (products) => {
       <h2 class="fs-6 my-2">Price: $ ${product.price}</h2>
       </div>
       <div>
-     
       <p class="my-0">Rating: ${product.rating.rate}</p>
       <p class="my-0">Total Reviews: ${product.rating.count}</p>
       <p>${ratingIcon}</p>
@@ -292,7 +237,7 @@ const showProducts = (products) => {
       <div class="d-flex">
       <button onclick="addToCart(${product.id},${
       product.price
-    })" id="addToCart-btn" class="buy-now btn-cart me-4">add to cart</button>
+    })" type="button" id="addToCart-btn" class="buy-now btn-cart me-4">add to cart</button>
       <button id="details-btn" class="btn-details">Details</button>
       </div>
       </div>
@@ -300,6 +245,66 @@ const showProducts = (products) => {
     document.getElementById("all-products").appendChild(div);
   }
 };
+/* -------------------------- RATING STAR FUNCTION -------------------------- */
+const icon = (product) => {
+  let ratingIcon;
+  if (Number(product.rating.rate) < 1) {
+    ratingIcon = `
+    <i class="fas fa-star-half rating"></i>
+    <i class="fas fa-star-half rating"></i>
+    <i class="fas fa-star-half rating"></i>
+    <i class="fas fa-star-half rating"></i>
+    <i class="fas fa-star-half rating"></i>
+    `;
+  } else if (
+    Number(product.rating.rate) === 1 ||
+    (Number(product.rating.rate) < 2 && Number(product.rating.rate) > 1)
+  ) {
+    ratingIcon = `
+    <i class="fas fa-star rating"></i>
+    <i class="fas fa-star-half rating"></i>
+    <i class="fas fa-star-half rating"></i>
+    <i class="fas fa-star-half rating"></i>
+    <i class="fas fa-star-half rating"></i>`;
+  } else if (
+    Number(product.rating.rate) < 3 &&
+    Number(product.rating.rate) >= 2
+  ) {
+    ratingIcon = `
+    <i class="fas fa-star rating"></i>
+    <i class="fas fa-star rating"></i>
+    <i class="fas fa-star-half rating"></i>
+    <i class="fas fa-star-half rating"></i>
+    <i class="fas fa-star-half rating"></i>`;
+  } else if (
+    Number(product.rating.rate) < 4 &&
+    Number(product.rating.rate) >= 3
+  ) {
+    ratingIcon = `
+    <i class="fas fa-star rating"></i>
+    <i class="fas fa-star rating"></i>
+    <i class="fas fa-star rating"></i>
+    <i class="fas fa-star-half rating"></i>
+    <i class="fas fa-star-half rating"></i>`;
+  } else if (Number(product.rating.rate) >= 4) {
+    ratingIcon = `
+    <i class="fas fa-star rating"></i>
+    <i class="fas fa-star rating"></i>
+    <i class="fas fa-star rating"></i>
+    <i class="fas fa-star rating"></i>
+    <i class="fas fa-star-half rating"></i>`;
+  } else {
+    ratingIcon = `
+    <i class="fas fa-star rating"></i>
+    <i class="fas fa-star rating"></i>
+    <i class="fas fa-star rating"></i>
+    <i class="fas fa-star rating"></i>
+    <i class="fas fa-star rating"></i>`;
+  }
+  return ratingIcon;
+};
+
+/* -------------------------- ADD TO CART FUNCTION -------------------------- */
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
@@ -310,6 +315,7 @@ const addToCart = (id, price) => {
   updateTotal();
 };
 
+// get input value
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element);

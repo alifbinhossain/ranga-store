@@ -228,8 +228,8 @@ const showProducts = (products) => {
       <i class="fas fa-star-half rating"></i>
       `;
     } else if (
-      Number(product.rating.rate) <= 2 &&
-      Number(product.rating.rate) > 1
+      Number(product.rating.rate) === 1 ||
+      (Number(product.rating.rate) < 2 && Number(product.rating.rate) > 1)
     ) {
       ratingIcon = `
       <i class="fas fa-star rating"></i>
@@ -238,8 +238,8 @@ const showProducts = (products) => {
       <i class="fas fa-star-half rating"></i>
       <i class="fas fa-star-half rating"></i>`;
     } else if (
-      Number(product.rating.rate) <= 3 &&
-      Number(product.rating.rate) > 2
+      Number(product.rating.rate) < 3 &&
+      Number(product.rating.rate) >= 2
     ) {
       ratingIcon = `
       <i class="fas fa-star rating"></i>
@@ -249,7 +249,7 @@ const showProducts = (products) => {
       <i class="fas fa-star-half rating"></i>`;
     } else if (
       Number(product.rating.rate) < 4 &&
-      Number(product.rating.rate) > 3
+      Number(product.rating.rate) >= 3
     ) {
       ratingIcon = `
       <i class="fas fa-star rating"></i>
@@ -257,7 +257,7 @@ const showProducts = (products) => {
       <i class="fas fa-star rating"></i>
       <i class="fas fa-star-half rating"></i>
       <i class="fas fa-star-half rating"></i>`;
-    } else if (Number(product.rating.rate) > 4) {
+    } else if (Number(product.rating.rate) >= 4) {
       ratingIcon = `
       <i class="fas fa-star rating"></i>
       <i class="fas fa-star rating"></i>
@@ -280,18 +280,20 @@ const showProducts = (products) => {
     <img class="product-image" src=${image}></img>
       </div>
       <h3 class="fs-5 my-3">${product.title.slice(0, 40)}</h3>
-      <p>Category: ${product.category}</p>
+      <p class="my-0">Category: ${product.category}</p>
+      <h2 class="fs-6 my-2">Price: $ ${product.price}</h2>
       </div>
       <div>
-      <h2 class="fs-6">Price: $ ${product.price}</h2>
-      <p>Rating: ${product.rating.rate} (${product.rating.count})</p>
+     
+      <p class="my-0">Rating: ${product.rating.rate}</p>
+      <p class="my-0">Total Reviews: ${product.rating.count}</p>
       <p>${ratingIcon}</p>
       </div>
       <div class="d-flex">
       <button onclick="addToCart(${product.id},${
       product.price
-    })" id="addToCart-btn" class="buy-now btn btn-success me-4">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button>
+    })" id="addToCart-btn" class="buy-now btn-cart me-4">add to cart</button>
+      <button id="details-btn" class="btn-details">Details</button>
       </div>
       </div>
       `;
